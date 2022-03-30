@@ -14,7 +14,7 @@ class FetchOnline extends Component {
 }
 
 componentDidMount = async () => {
-    const response = await fetch(`http://neubauer.link/info`)
+    const response = await fetch(`${API_ENDPOINT}/info`)
     if (response.ok) {
       const stats = await response.json()
       this.setState({stats, fetchonline: stats.online, isLoading: false})
