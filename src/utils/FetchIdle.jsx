@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'localhost'
 const API_PORT = process.env.REACT_APP_API_PORT || '11451'
 
-class FetchOnline extends Component {
+class FetchIdle extends Component {
   constructor(props) {
     super(props)
     this.state = {
         isLoading: true, 
         isError: false,
         stats: [],
-        fetchonline: ""
+        fetchidle: ""
     }
 }
 
@@ -18,7 +18,7 @@ componentDidMount = async () => {
     const response = await fetch(`${API_ENDPOINT}:${API_PORT}/info`)
     if (response.ok) {
       const stats = await response.json()
-      this.setState({stats, fetchonline: stats.online, isLoading: false})
+      this.setState({stats, fetchidle: stats.idle, isLoading: false})
       return(true)
     } else {
       this.setState({ isError: true, isLoading: false })
@@ -29,11 +29,11 @@ componentDidMount = async () => {
 
     return (
         <div>
-           {this.state.fetchonline}
+           {this.state.fetchidle}
         </div>
     )
 }
 
 }
 
-export default FetchOnline
+export default FetchIdle
