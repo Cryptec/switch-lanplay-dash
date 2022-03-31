@@ -14,7 +14,7 @@ class FetchStatus extends Component {
 }
 
 componentDidMount = async () => {
-    const response = await fetch(`${API_ENDPOINT}:${API_PORT}/info`)
+    const response = await fetch(`http://${API_ENDPOINT}:${API_PORT}/info`)
     if (response.ok) {
       this.setState({status: 'online'})
       document.getElementById('indicator').style.backgroundColor ='#378805'

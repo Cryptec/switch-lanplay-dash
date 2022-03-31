@@ -15,7 +15,7 @@ class FetchOnline extends Component {
 }
 
 componentDidMount = async () => {
-    const response = await fetch(`${API_ENDPOINT}:${API_PORT}/info`)
+    const response = await fetch(`http://${API_ENDPOINT}:${API_PORT}/info`)
     if (response.ok) {
       const stats = await response.json()
       this.setState({stats, fetchonline: stats.online, isLoading: false})
@@ -26,7 +26,15 @@ componentDidMount = async () => {
 }
 
   render() {
+    const { isLoading, isError } = this.state
 
+    if (isLoading) {
+      return <div>0</div>
+    }
+
+    if (isError) {
+      return <div>0</div>
+    }
     return (
         <div>
            {this.state.fetchonline}
