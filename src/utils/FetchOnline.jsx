@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'localhost'
-const API_PORT = process.env.REACT_APP_API_PORT || '11451'
+const API_PORT = process.env.REACT_APP_API_PORT || ':11451'
 
 class FetchOnline extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class FetchOnline extends Component {
 }
 
 componentDidMount = async () => {
-    const response = await fetch(`http://${API_ENDPOINT}:${API_PORT}/info`)
+    const response = await fetch(`${API_ENDPOINT}${API_PORT}`)
     if (response.ok) {
       const stats = await response.json()
       this.setState({stats, fetchonline: stats.online, isLoading: false})

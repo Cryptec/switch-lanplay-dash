@@ -8,6 +8,7 @@ function App() {
   const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'localhost'
   const API_PORT = process.env.REACT_APP_API_PORT || '11451'
   const SITE_TITLE = process.env.REACT_APP_SITE_TITLE
+  const LANPLAY_URL = process.env.REACT_APP_LANPLAY_URL
   return (
     <div className='App'>
       <header className='App-header'>
@@ -20,7 +21,7 @@ function App() {
           </tr>
           <tr>
             <td><FetchStatus /></td>
-            <td>{API_ENDPOINT}:{API_PORT}</td>
+            <td>{LANPLAY_URL}</td>
             <td style={styles.onlinerow}>
               <FetchOnline /> / <FetchIdle />
             </td>
